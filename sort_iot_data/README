@@ -1,0 +1,8 @@
+Command to execute the Python program -
+./bin/spark-submit ~/code/example.py -i <input-csv-file> -o <output-csv-file>
+
+Example -
+./bin/spark-submit ~/code/sort_iot_data.py -i hdfs://128.104.222.82:9000/user/balarjun/export.csv -o hdfs://128.104.222.82:9000/user/balarjun/so1.csv
+
+This example will sort the IOT data according to the given specifications and create a folder called so1.csv which has multiple PART files.
+To see the consolidated sorted output, you can run "hadoop fs -cat so1.csv/*"
