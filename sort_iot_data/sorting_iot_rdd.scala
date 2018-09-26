@@ -8,6 +8,8 @@ var raw_data = sc.textFile(args(0))
 val header = raw_data.first()
 raw_data = raw_data.filter(line => line != header)
 
+val header_append = sc.parallelize(header.split("\\s+"),1)
+
 // Since the data is in CSV format, we split into an Array of Strings
 val split_data = raw_data.map(line => line.split(","))
 
@@ -15,11 +17,14 @@ val split_data = raw_data.map(line => line.split(","))
 val indexed_data = split_data.map(array => ((array(2),array(14)),array))
 
 // Now sort by key. The secondary sorting by timestamp will be taken care of automatically
-val sorted_data = indexed_data.sortByKey().persist()
+val sorted_data = indexed_data.repartition(4).sortByKey().persist()
+
 
 // Remove the keys since we now only need the original entries in CSV format.
 val final_data = sorted_data.map{case (a,b) => b.mkString(",")}
 
+val final_data_to_write = sc.union(header_append,final_data)
+
 // Save it back to HDFS and exit
-final_data.saveAsTextFile(args(1))
+final_data_to_write.saveAsTextFile(args(1))
 System.exit(0)
