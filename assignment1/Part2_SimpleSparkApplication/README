@@ -1,0 +1,21 @@
+This program helps you to sort IOT data based on country code. If the country codes are same, the records would be ordered by timestamp.
+The entire problem statement is at http://pages.cs.wisc.edu/~shivaram/cs744-fa18/assignment1.html
+ 
+This module has been implemented in 3 ways -
+1. Using Dataframes on Scala.
+2. Using Dataframes on Python.
+3. Using RDDs on Scala.
+
+To run the module, please follow the below steps -
+1. Extract the zip file.
+2. Goto to the root of the folder and you should see a file called run.sh.
+3. Verify that Spark and Hadoop have been setup and configured correctly and that the PATH has been exported.
+4. Now start the script by issuing - bash run.sh
+5. This will open up an interactive menu where you can enter details of the input file, output file, and which implementation you would like to use for execution.
+Example -
+Hello, balarjun. I am here to help you sort the data you have from an IoT dataset
+Would you like to run the job using Scala or Python?Select your option (S/P) and press [ENTER]:S
+Enter the name of the input file and press [ENTER]:hdfs://128.104.222.82:9000/user/balarjun/export.csv
+Enter the name of the output file and press [ENTER]:hdfs://128.104.222.82:9000/user/balarjun/solution.csv
+Would you like to run using RDDs or Dataframes?Select your option (R/D) and press [ENTER]:R
+6. To see the consolidated sorted output on HDFS, you can run "hadoop fs -cat solution.csv/*"

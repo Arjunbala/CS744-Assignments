@@ -1,0 +1,2 @@
+Run run.sh to start the server and start training the Alexnet, with cluster configuration and batch size = 32. 
+Parameters can be changed inside run.sh to run for different configurations. Default dataset is flowers, which can be changed to fake_data. 

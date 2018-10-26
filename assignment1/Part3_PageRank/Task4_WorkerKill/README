@@ -1,0 +1,19 @@
+Script : PageRank_partition.scala
+We manually ssh into one of the follower and kill the worker process. 
+
+
+Run following command 
+"./run.sh /proj/uwmadison744-f18-PG0/test/enwiki-pages-articles/ output_file_path num_iterations dataset_type num_partitions"
+
+
+Arguments in order:
+ 
+1. input_file_path : path of the input file containing all nodes
+2. output_file_path : Path of the output file 
+3. num_iterations : Total Number of Iterations
+4. dataset_type : 
+		"Big" for Bigger Data 
+		"Small" for smaller data i.e. the berkeley one
+5. num_partitions : Number of partitions
+
+

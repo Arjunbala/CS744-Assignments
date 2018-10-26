@@ -1,0 +1,17 @@
+To run this program, you would need to execute the run_code_template.sh script
+You can do bash run_code_template.sh
+Once you do this, an interactive menu will open up asking you for 4 options.
+These represent different operating modes for the program -
+1. SGD on Single Node
+2. Asynchronous SGD
+3. Synchronous SGD
+4. TensorBoard visualization
+By default all distributed SGDs run on 4 workers and 1 parameter server
+
+To view the logs,
+serverlog-[i].out, for logs on worker i
+serverlog-ps-0.out, for logs on parameter server at node 0
+
+Go to ~/tf/ to check the generated event files that can be
+then viewed using TensorBoard. The command is -
+tensorboard --logdir .
